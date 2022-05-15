@@ -22,7 +22,7 @@ function translateContainer(direction){
   const selectedBtn = (direction === 1) ? 'prev' : 'next';
   carousel.style.transitionDuration = '500ms';
   carousel.style.transform = `rotateY(${direction * 60}deg)`;
-  // 동작이 종료시 
+  // 동작이 종료시 재구성함수 실행 
   carousel.ontransitionend = () => reorganizeEl(selectedBtn);
 }
 
@@ -36,7 +36,8 @@ function reorganizeEl(selectedBtn) {
       carousel.insertBefore(carousel.lastElementChild, carousel.firstElementChild);
     }
     else {
-      // 첫번째 요소가 자식요소로 된다. 
+      // appendChild() 메소드는 한 노드를 특정 부모 노드의 자식 노드 리스트 중 마지막 자식으로 붙인다. 
+      // next 누르면 첫 번째 요소를 마지막 자식요소로 ! 
       carousel.appendChild(carousel.firstElementChild);
     }
   }
