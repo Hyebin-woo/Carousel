@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+img{
+    width: 200px;
+    height: 300px;
+    padding: 20px;
+}
+
+.stage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: url(./image/cover.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    perspective: 800px;
+}
+
+.carousel{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+   
+}
+
+.panel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left:0;
+    top:0;
+    width: 200px;
+    height: 200px;
+
+}
+
+.panel:nth-child(1){
+    transform: rotateY(0deg)
+     translateZ(173px);
+}
+.panel:nth-child(2){
+    transform: rotateY(60deg)
+     translateZ(173px);
+}
+.panel:nth-child(3){
+    transform: rotateY(120deg)
+     translateZ(173px);
+}
+.panel:nth-child(4){
+    transform: rotateY(180deg)
+     translateZ(173px);
+}
+.panel:nth-child(5){
+    transform: rotateY(240deg)
+     translateZ(173px);
+}
+.panel:nth-child(6){
+    transform: rotateY(300deg)
+     translateZ(173px);
+}
+
+/* rotateY : 회전각도. 360/패널갯수대로 하면 각도가 나온다.
+  translateZ는 Z축 전진값인데 딱 맞물리게하려면 삼각함수써서 전진거리를 계산해야하고
+  맞물리지않아도 된다면 적당한 값을 줘도된다 */
+
+/* carousel 만들때 전진거리계산 : 
+(width/2) / tan(내각/2) = 전진거리 */
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 350px;
+  }
+
+  button {
+    width: 150px;
+    height: 150px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    background-image: url(./image/leaf.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+.prev{
+    transform: rotate(55deg);
+}
+
+.next{
+    transform: rotate(226deg);
+}
+  
