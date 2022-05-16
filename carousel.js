@@ -23,11 +23,11 @@ function translateContainer(direction){
   carousel.style.transitionDuration = '500ms';
   carousel.style.transform = `rotateY(${direction * 60}deg)`;
   // 동작이 종료시 재구성함수 실행 
-  carousel.ontransitionend = () => reorganizeEl(selectedBtn);
+  carousel.ontransitionend = () => reSort(selectedBtn);
 }
 
 // 요소들을 재구성하는 함수
-function reorganizeEl(selectedBtn) {
+function reSort(selectedBtn) {
     carousel.removeAttribute('style');
 
     if(selectedBtn == 'prev') {
